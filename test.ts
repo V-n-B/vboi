@@ -51,3 +51,30 @@ describe('Enum validation', () => {
         assertErrorType(result, 'voi.enum');
     });
 });
+
+describe('Simple email validation', () => {
+    it('should validate a good email address', () => {
+        const result = Voi.string().simpleEmail().validate('test@example.com');
+        assert.isUndefined(result.error);
+    });
+
+    it('should validate an email address with weird characters', () => {
+        const result = Voi.string().simpleEmail().validate('teઞȹ3@லstދ@eષxaǭĕǮݩݪmpl@e.com');
+        assert.isUndefined(result.error);
+    });
+
+    it('should require a simpleEmail to have an @ symbol', () => {
+        const result = Voi.string().simpleEmail().validate('testexample.com');
+        assertErrorType(result, 'string.simpleEmail');
+    });
+
+    it('should require a char before the @ symbol', () => {
+        const result = Voi.string().simpleEmail().validate('@testexample.com');
+        assertErrorType(result, 'string.simpleEmail');
+    });
+
+    it('should require a char after the @ symbol', () => {
+        const result = Voi.string().simpleEmail().validate('testexample.com@');
+        assertErrorType(result, 'string.simpleEmail');
+    });
+});

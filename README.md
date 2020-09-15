@@ -27,4 +27,10 @@ Voi.voi().enum(Action).validate('dungeons');
 
 Voi.voi().enum(Status).validate('foo');
 // Results in error with type 'voi.enum'
+
+Voi.string().simpleEmail().validate('test@example.com');
+// Validates
+
+Voi.string().simpleEmail().validate('testexample.com');
+// Results in error with type string.simpleEmail
 ```

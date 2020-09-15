@@ -1,6 +1,6 @@
 {
   "name": "@v-n-b/voi",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Some minor extensions to Joi in TypeScript",
   "main": "lib.js",
   "types": "lib.d.ts",

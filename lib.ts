@@ -2,7 +2,12 @@ import Joi from '@hapi/joi';
 import { values } from 'lodash';
 
 export interface IVoi extends Joi.Root {
+    string(): IStringSchema;
     voi(): IVoiSchema;
+}
+
+export interface IStringSchema extends Joi.StringSchema {
+    simpleEmail(): this;
 }
 
 export interface IVoiSchema extends Joi.AnySchema {
@@ -33,6 +38,27 @@ export const Voi: IVoi = Joi.extend(
                         return value;
                     }
                     return helpers.error('voi.enum');
+                },
+            },
+        },
+    },
+    {
+        type: 'string',
+        base: Joi.string(),
+        messages: {
+            'string.simpleEmail': '{{#label}} needs to be a valid email address',
+        },
+        rules: {
+            simpleEmail: {
+                method() {
+                    return this.$_addRule('simpleEmail');
+                },
+                validate(value: any, helpers: any, args: Record<string, any>, options: any) {
+                    if (typeof value === 'string' && /^.+@.+$/.test(value)) {
+                        return value;
+                    } else {
+                        return helpers.error('string.simpleEmail');
+                    }
                 },
             },
         },
