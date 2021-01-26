@@ -1,5 +1,5 @@
-import { ValidationResult } from '@hapi/joi';
 import { assert } from 'chai';
+import { ValidationResult } from 'joi';
 import 'mocha';
 import { Voi } from './lib';
 

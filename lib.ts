@@ -1,5 +1,7 @@
-import Joi from '@hapi/joi';
+import Joi from 'joi';
 import { values } from 'lodash';
+
+export type Schema = Joi.Schema;
 
 export interface IVoi extends Joi.Root {
     string(): IStringSchema;
