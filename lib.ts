@@ -3,6 +3,7 @@ import { values } from 'lodash';
 
 export type Schema = Joi.Schema;
 export type ObjectSchema = Joi.ObjectSchema;
+export type ValidationError = Joi.ValidationError;
 
 export interface IVoi extends Joi.Root {
     string(): IStringSchema;
