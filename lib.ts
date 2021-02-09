@@ -2,6 +2,7 @@ import Joi from 'joi';
 import { values } from 'lodash';
 
 export type Schema = Joi.Schema;
+export type ObjectSchema = Joi.ObjectSchema;
 
 export interface IVoi extends Joi.Root {
     string(): IStringSchema;
