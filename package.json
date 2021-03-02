@@ -1,6 +1,6 @@
 {
   "name": "@v-n-b/voi",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Some minor extensions to Joi in TypeScript",
   "main": "lib.js",
   "types": "lib.d.ts",
@@ -17,7 +17,8 @@
   "license": "MIT",
   "dependencies": {
     "joi": "^17.3.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "moment": "2.29.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
